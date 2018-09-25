@@ -14,11 +14,13 @@ public class FilteringApples {
                                                 new Apple(155, "green"),
                                                 new Apple(120, "red"));
 
+        /******************** Method Reference ********************/
         List<Apple> greenApples = filterApples(inventory, FilteringApples::isGreenApple);
         System.out.println(greenApples);
 
         List<Apple> headyApples = filterApples(inventory, FilteringApples::isHeavyApple);
         System.out.println(headyApples);
+        /**********************************************************/
     }
 
     public static boolean isGreenApple(Apple apple) {
