@@ -15,11 +15,24 @@ public class FilteringApples {
                                                 new Apple(120, "red"));
 
         /******************** Method Reference ********************/
+
         List<Apple> greenApples = filterApples(inventory, FilteringApples::isGreenApple);
         System.out.println(greenApples);
 
         List<Apple> headyApples = filterApples(inventory, FilteringApples::isHeavyApple);
         System.out.println(headyApples);
+
+        /**********************************************************/
+
+
+        /*************** Method Reference -> Lambda ***************/
+
+        List<Apple> greenApples2 = filterApples(inventory, (Apple a) -> "green".equals(a.getColor()));
+        System.out.println(greenApples2);
+
+        List<Apple> headyApples2 = filterApples(inventory, (Apple a) -> a.getWeight() > 150);
+        System.out.println(headyApples2);
+
         /**********************************************************/
     }
 

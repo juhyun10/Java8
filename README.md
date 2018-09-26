@@ -15,7 +15,7 @@ Contents
 - jdk 10.0.1
 - intelliJ
 
-$ java -version
+`$ java -version`
 
 java version "10.0.1" 2018-04-17
 
