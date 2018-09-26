@@ -1,9 +1,11 @@
 package chap01;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 /**
  * Method Reference (코드 넘겨주기)
@@ -11,16 +13,17 @@ import java.util.function.Predicate;
 public class FilteringApples {
     public static void main(String[] args) {
         List<Apple> inventory = Arrays.asList(new Apple(80, "green"),
-                                                new Apple(155, "green"),
-                                                new Apple(120, "red"));
+                                                new Apple(120, "red"),
+                                                new Apple(155, "green")
+                                                );
 
         /******************** Method Reference ********************/
 
         List<Apple> greenApples = filterApples(inventory, FilteringApples::isGreenApple);
-        System.out.println(greenApples);
+        //System.out.println(greenApples);
 
         List<Apple> headyApples = filterApples(inventory, FilteringApples::isHeavyApple);
-        System.out.println(headyApples);
+        //System.out.println(headyApples);
 
         /**********************************************************/
 
@@ -28,10 +31,30 @@ public class FilteringApples {
         /*************** Method Reference -> Lambda ***************/
 
         List<Apple> greenApples2 = filterApples(inventory, (Apple a) -> "green".equals(a.getColor()));
-        System.out.println(greenApples2);
+        //System.out.println(greenApples2);
 
         List<Apple> headyApples2 = filterApples(inventory, (Apple a) -> a.getWeight() > 150);
-        System.out.println(headyApples2);
+        //System.out.println(headyApples2);
+
+        /**********************************************************/
+
+
+        /************************* Stream *************************/
+
+        // 순차 처리
+        List<Apple> streamApple =
+                inventory.stream()
+                         .filter((Apple a) -> a.getWeight() > 110)
+                         .collect(toList());
+
+        // 병렬 처리
+        List<Apple> parallelApple =
+                inventory.parallelStream()
+                         .filter((Apple a) -> a.getWeight() > 110)
+                         .collect(toList());
+
+        System.out.println(streamApple);
+        System.out.println(parallelApple);
 
         /**********************************************************/
     }
@@ -85,5 +108,9 @@ public class FilteringApples {
                     ", weight=" + weight +
                     '}';
         }
+    }
+
+    public enum Currency {
+        EUR, USD, JPY, GBP, CHF
     }
 }
