@@ -2,6 +2,7 @@ package chap02;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -154,6 +155,31 @@ public class FilteringApples {
         // oddNumbers7 : [1, 3, 5, 7, 9]
         List<Integer> oddNumbers7 = filterApples7(numbers, (Integer i) -> i%2==1);
         System.out.println("oddNumbers7 : " + oddNumbers7);
+
+
+        /******************** Comparator sort ********************
+         * java 8의 List에는 sort 메서드 포함 (물론 Collections.sort도 존재)
+         *
+         * 익명클래스, Comparator를 구현해서 sort 메서드의 동작을 다양화
+         * 람다 표현식으로 더 간단히 표현
+         ****************************************************************/
+
+        System.out.println("********* Comparator sort *********");
+
+        // 익명클래스, Comparator를 구현해서 sort 메서드의 동작을 다양화 (무게가 적은 순으로 정렬)
+        inventory.sort(new Comparator<Apple>() {
+            @Override
+            public int compare(Apple o1, Apple o2) {
+                return o1.getWeight().compareTo(o2.getWeight());
+            }
+        });
+
+        System.out.println(inventory);
+
+        // Lambda로 표현 (무게가 큰 순으로 정렬)
+        inventory.sort((Apple a1, Apple a2) -> a2.getWeight().compareTo(a1.getWeight()));
+
+        System.out.println(inventory);
     }
 
     /**
