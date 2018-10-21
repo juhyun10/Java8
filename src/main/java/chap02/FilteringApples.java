@@ -180,6 +180,27 @@ public class FilteringApples {
         inventory.sort((Apple a1, Apple a2) -> a2.getWeight().compareTo(a1.getWeight()));
 
         System.out.println(inventory);
+
+
+        /******************** Execute code block with Runnable ********************
+         * Runnable 인터페이스를 이용해서 실행한 코드 블록 지정 가능
+         ****************************************************************/
+
+        System.out.println("********* Execute code block with Runnable *********");
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hello");
+            }
+        });
+
+        t.run();
+
+        // Lambda
+        Thread t2 = new Thread(()-> System.out.println("Hello~"));
+
+        t2.run();
     }
 
     /**
