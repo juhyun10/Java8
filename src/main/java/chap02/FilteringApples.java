@@ -95,6 +95,68 @@ public class FilteringApples {
 
         /***************************************************************************/
 
+        /******************** quiz 2-1. prettyPrintApple ********************
+         * 동작을 추상화해서 여러 요구사항에 대응하는 코드구현
+         * (여러 클래스 구현하는 부분도 나중에 개선함)
+         *
+         * 사과 리스트를 인수로 받아 다양한 방법으로 문자열을 생성할 수 있도록 파라미터화된 prettyPrintApple 메서드 구현
+         *
+         * Implemented a parameterized prettyPrintApple method that accepts an apple list as an argument
+         * and can generate string in a variety of ways.
+         ****************************************************************/
+
+        System.out.println("********* quiz 2-1. prettyPrintApple *********");
+
+        prettyPrintApple(inventory, new AppleFancyFormatter());
+
+        prettyPrintApple(inventory, new AppleSimpleFormatter());
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     *
+     * @param inventory
+     * @param formatter
+     */
+    public static void prettyPrintApple(List<Apple> inventory, AppleFormatter formatter) {
+        for (Apple apple : inventory) {
+            String output = formatter.accept(apple);
+
+            System.out.println(output);
+        }
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     *
+     * Apple을 인수로 받아 정해진 형식의 문자열을 반환할 수단
+     */
+    public interface AppleFormatter {
+        public String accept(Apple a);
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     */
+    public static class AppleFancyFormatter implements AppleFormatter {
+        @Override
+        public String accept(Apple a) {
+            String str = a.getWeight() > 150 ? "heave" : "light";
+            StringBuffer buf = new StringBuffer();
+            buf.append("A ").append(str).append(" ").append(a.getColor()).append(" apple");
+
+            return buf.toString();
+        }
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     */
+    public static class AppleSimpleFormatter implements AppleFormatter {
+        @Override
+        public String accept(Apple a) {
+            return "An Apple of " + a.getWeight() + "g.";
+        }
     }
 
     /**
@@ -187,6 +249,8 @@ public class FilteringApples {
     }
 
     /**
+     * fourth try : predicate
+     *
      * 선택 조건을 결정하는 interface
      * The interface that determines the selection criteria.
      *
@@ -197,6 +261,8 @@ public class FilteringApples {
     }
 
     /**
+     * fourth try : predicate
+     *
      * 150 이상의 사과만 선택하는 predicate
      * A predicate that selects only apples weight over 150.
      */
@@ -208,6 +274,8 @@ public class FilteringApples {
     }
 
     /**
+     * fourth try : predicate
+     *
      * 녹색 사과만 선택하는 predicate
      * A predicate that selects only green apples.
      */
@@ -218,6 +286,9 @@ public class FilteringApples {
         }
     }
 
+    /**
+     * fourth try : predicate
+     */
     static class AppleRedHeavyPredicate implements ApplePredicate {
         @Override
         public boolean test(Apple a) {
