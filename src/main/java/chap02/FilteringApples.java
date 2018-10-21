@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * behavior parameterization (동작 파라미터화)
+ *  filtering
+ *  predicate
  */
 public class FilteringApples {
 
@@ -19,6 +21,8 @@ public class FilteringApples {
          * you have to add a method "filterRedApples".
          ***************************************************************************/
 
+        System.out.println("********* first try : green apple filtering *********");
+
         List<Apple> greenApples = filterGreenApples(inventory);
         //System.out.println("greenApples : " + greenApples);
 
@@ -30,6 +34,8 @@ public class FilteringApples {
          * you have to add a method "filterApplesByWeight" with weight criteria.
          ***************************************************************************/
 
+        System.out.println("********* second try : color parameterization *********");
+
         // [Apple{color='green', weight=80}, Apple{color='green', weight=155}]
         List<Apple> greenApples2 = filterApplesByColor(inventory, "green");
         System.out.println(greenApples2);
@@ -39,6 +45,56 @@ public class FilteringApples {
         System.out.println(redApples2);
 
         /***************************************************************************/
+
+
+        /******************** third try : filter by all possible attributes ********************
+         * 형편없는 코드
+         * 결국 여러 중복된 필터 메서드를 만들거나 아니면 모든 것을 처리하는 거대한 하나의 필터 메서드 구현해야함
+         *
+         * Bad code.
+         * After all, u need to create a number of duplicate filter method,
+         * or implement one huge filter method that handles everything.
+         ***************************************************************************/
+
+        System.out.println("********* third try : filter by all possible attributes *********");
+
+        // [Apple{color='green', weight=80}, Apple{color='green', weight=155}]
+        List<Apple> greenApples3 = filterApples3(inventory, "green", 0, true);
+        System.out.println(greenApples3);
+
+        // [Apple{color='green', weight=155}]
+        List<Apple> weightApples3 = filterApples3(inventory, "", 150, false);
+        System.out.println(weightApples3);
+
+        /***************************************************************************/
+
+        /******************** fourth try : predicate ********************
+         * 새로운 검색 조건이 생기면 ApplePredicate interface를 적절하게 구현하는 클래스만 만들면 됨.
+         *
+         * If u have new create search conditions,
+         * u can just create a class that implements it properly.
+         ****************************************************************/
+
+        System.out.println("********* fourth try : predicate *********");
+
+        // [Apple{color='green', weight=80}, Apple{color='green', weight=155}]
+        List<Apple> greenApples4 = filterApples4(inventory, new AppleColorPredicate());
+        System.out.println("greenApples4 : " + greenApples4);
+
+        // Lambda
+        List<Apple> greenApplesLambda4 = filterApples4(inventory, (Apple a) -> "green".equals(a.getColor()));
+        System.out.println("greenApplesLambda4 : " + greenApplesLambda4);
+
+        // [Apple{color='green', weight=155}]
+        List<Apple> heaveApples4 = filterApples4(inventory, new AppleHeavyWeightPredicate());
+        System.out.println("heaveApples4 : " + heaveApples4);
+
+        // []
+        List<Apple> redAndHeavyApples4 = filterApples4(inventory, new AppleRedHeavyPredicate());
+        System.out.println("redAndHeavyApples4 : " + redAndHeavyApples4);
+
+        /***************************************************************************/
+
     }
 
     /**
@@ -91,7 +147,84 @@ public class FilteringApples {
         return result;
     }
 
+    /**
+     * third try : filter by all possible attributes (BAD CODE)
+     *
+     * @param inventory
+     * @param color
+     * @param weight
+     * @param flag
+     * @return
+     */
+    public static List<Apple> filterApples3(List<Apple> inventory, String color, int weight, boolean flag) {
+        List<Apple> result = new ArrayList<>();
+        for (Apple apple : inventory) {
+            if ((flag && apple.getColor().equals(color) ||
+                    (!flag && apple.getWeight() > weight))) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }
 
+    /**
+     * fourth try : predicate
+     *
+     * @param inventory
+     * @param p
+     * @return
+     */
+    public static List<Apple> filterApples4(List<Apple> inventory, ApplePredicate p) {
+        List<Apple> result = new ArrayList<>();
+        for (Apple apple : inventory) {
+            // predicate 객체로 사과 검사 조건을 캡슐화
+            // encapsulate apple check condition with predicate object
+            if (p.test(apple)) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 선택 조건을 결정하는 interface
+     * The interface that determines the selection criteria.
+     *
+     * 사과 선택 전략을 캡슐화
+     */
+    interface ApplePredicate {
+        public boolean test(Apple a);
+    }
+
+    /**
+     * 150 이상의 사과만 선택하는 predicate
+     * A predicate that selects only apples weight over 150.
+     */
+    static class AppleHeavyWeightPredicate implements ApplePredicate {
+        @Override
+        public boolean test(Apple a) {
+            return a.getWeight() > 150;
+        }
+    }
+
+    /**
+     * 녹색 사과만 선택하는 predicate
+     * A predicate that selects only green apples.
+     */
+    static class AppleColorPredicate implements ApplePredicate {
+        @Override
+        public boolean test(Apple a) {
+            return "green".equals(a.getColor());
+        }
+    }
+
+    static class AppleRedHeavyPredicate implements ApplePredicate {
+        @Override
+        public boolean test(Apple a) {
+            return "red".equals(a.getColor())
+                    && a.getWeight() > 150;
+        }
+    }
 
     public static class Apple {
         private int weight = 0;
