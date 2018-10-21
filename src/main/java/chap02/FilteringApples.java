@@ -15,6 +15,7 @@ public class FilteringApples {
         List<Apple> inventory = Arrays.asList(new Apple(80, "green"),
                                               new Apple(155, "green"),
                                               new Apple(120, "red"));
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
 
         /******************** first try : green apple filtering ********************
          * If you want to filter the red color,
@@ -81,10 +82,6 @@ public class FilteringApples {
         List<Apple> greenApples4 = filterApples4(inventory, new AppleColorPredicate());
         System.out.println("greenApples4 : " + greenApples4);
 
-        // Lambda
-        List<Apple> greenApplesLambda4 = filterApples4(inventory, (Apple a) -> "green".equals(a.getColor()));
-        System.out.println("greenApplesLambda4 : " + greenApplesLambda4);
-
         // [Apple{color='green', weight=155}]
         List<Apple> heaveApples4 = filterApples4(inventory, new AppleHeavyWeightPredicate());
         System.out.println("heaveApples4 : " + heaveApples4);
@@ -94,6 +91,7 @@ public class FilteringApples {
         System.out.println("redAndHeavyApples4 : " + redAndHeavyApples4);
 
         /***************************************************************************/
+
 
         /******************** quiz 2-1. prettyPrintApple ********************
          * 동작을 추상화해서 여러 요구사항에 대응하는 코드구현
@@ -110,53 +108,52 @@ public class FilteringApples {
         prettyPrintApple(inventory, new AppleFancyFormatter());
 
         prettyPrintApple(inventory, new AppleSimpleFormatter());
-    }
 
-    /**
-     * quiz 2-1. prettyPrintApple
-     *
-     * @param inventory
-     * @param formatter
-     */
-    public static void prettyPrintApple(List<Apple> inventory, AppleFormatter formatter) {
-        for (Apple apple : inventory) {
-            String output = formatter.accept(apple);
+        /***************************************************************************/
 
-            System.out.println(output);
-        }
-    }
 
-    /**
-     * quiz 2-1. prettyPrintApple
-     *
-     * Apple을 인수로 받아 정해진 형식의 문자열을 반환할 수단
-     */
-    public interface AppleFormatter {
-        public String accept(Apple a);
-    }
+        /******************** fifth try : anonymous class ********************
+         * 이전까지는 filterApples로 새로운 동작을 전달하려면 ApplePredicate interface를 구현하는 클래스를
+         * 정의한 후에 인스턴스화해야 했음 -> 상당히 번거로운 작업
+         *
+         * 이러한 복잡한 과정을 익명 클래스를 사용해 클래스 선언과 동시에 인스턴스화함
+         ****************************************************************/
 
-    /**
-     * quiz 2-1. prettyPrintApple
-     */
-    public static class AppleFancyFormatter implements AppleFormatter {
-        @Override
-        public String accept(Apple a) {
-            String str = a.getWeight() > 150 ? "heave" : "light";
-            StringBuffer buf = new StringBuffer();
-            buf.append("A ").append(str).append(" ").append(a.getColor()).append(" apple");
+        System.out.println("********* fifth try : anonymous class *********");
 
-            return buf.toString();
-        }
-    }
+        // [Apple{color='red', weight=120}]
+        List<Apple> redApples5 = filterApples4(inventory, new ApplePredicate() {
+            @Override
+            public boolean test(Apple a) {
+                return "red".equals(a.getColor());
+            }
+        });
 
-    /**
-     * quiz 2-1. prettyPrintApple
-     */
-    public static class AppleSimpleFormatter implements AppleFormatter {
-        @Override
-        public String accept(Apple a) {
-            return "An Apple of " + a.getWeight() + "g.";
-        }
+        System.out.println(redApples5);
+
+
+        /******************** sixth try : Lambda ********************/
+
+        System.out.println("********* sixth try : Lambda *********");
+
+        // Lambda
+        List<Apple> greenApplesLambda4 = filterApples4(inventory, (Apple a) -> "green".equals(a.getColor()));
+        System.out.println("greenApplesLambda4 : " + greenApplesLambda4);
+
+
+        /******************** seven try : Abstraction in list form ********************
+         * Apple과 관련한 동작 뿐 아니라 다양한 물건에서 필터링이 작동하도록 리스트 형식을 추상화
+         ****************************************************************/
+
+        System.out.println("********* seven try : Abstraction in list form *********");
+
+        // redApples7 : [Apple{color='red', weight=120}]
+        List<Apple> redApples7 = filterApples7(inventory, (Apple a) -> "red".equals(a.getColor()));
+        System.out.println("redApples7 : " + redApples7);
+
+        // oddNumbers7 : [1, 3, 5, 7, 9]
+        List<Integer> oddNumbers7 = filterApples7(numbers, (Integer i) -> i%2==1);
+        System.out.println("oddNumbers7 : " + oddNumbers7);
     }
 
     /**
@@ -295,6 +292,81 @@ public class FilteringApples {
             return "red".equals(a.getColor())
                     && a.getWeight() > 150;
         }
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     *
+     * @param inventory
+     * @param formatter
+     */
+    public static void prettyPrintApple(List<Apple> inventory, AppleFormatter formatter) {
+        for (Apple apple : inventory) {
+            String output = formatter.accept(apple);
+
+            System.out.println(output);
+        }
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     *
+     * Apple을 인수로 받아 정해진 형식의 문자열을 반환할 수단
+     */
+    public interface AppleFormatter {
+        public String accept(Apple a);
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     */
+    public static class AppleFancyFormatter implements AppleFormatter {
+        @Override
+        public String accept(Apple a) {
+            String str = a.getWeight() > 150 ? "heave" : "light";
+            StringBuffer buf = new StringBuffer();
+            buf.append("A ").append(str).append(" ").append(a.getColor()).append(" apple");
+
+            return buf.toString();
+        }
+    }
+
+    /**
+     * quiz 2-1. prettyPrintApple
+     */
+    public static class AppleSimpleFormatter implements AppleFormatter {
+        @Override
+        public String accept(Apple a) {
+            return "An Apple of " + a.getWeight() + "g.";
+        }
+    }
+
+    /**
+     * seven try : Abstraction in list form
+     *
+     * @param <T>
+     */
+    public interface Predicate7<T> {
+        boolean test(T t);
+    }
+
+    /**
+     * seven try : Abstraction in list form
+     *
+     * @param list
+     * @param p
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> filterApples7(List<T> list, Predicate7<T> p) {
+        // 형식 파라미터 T 등장
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (p.test(e)) {
+                result.add(e);
+            }
+        }
+        return result;
     }
 
     public static class Apple {
