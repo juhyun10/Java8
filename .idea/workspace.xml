@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e98fe83e-40a7-4ee2-9af8-c774af4a91da" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/chap03/ExecuteAround.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chap03/data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chap02/FilteringApples.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chap02/FilteringApples.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$Apple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$Apple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleColorPredicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleColorPredicate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleFancyFormatter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleFancyFormatter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleHeavyWeightPredicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleHeavyWeightPredicate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleRedHeavyPredicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleRedHeavyPredicate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleSimpleFormatter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chap02/FilteringApples$AppleSimpleFormatter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chap02/FilteringApples.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chap02/FilteringApples.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,38 +25,42 @@
     <session id="528297451">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.32" value="2" />
           <entry key="project.open.time.42" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="4" />
+          <entry key="java" value="5" />
           <entry key="md" value="1" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="5" />
           <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7563" />
+          <entry key="java" value="8992" />
           <entry key="md" value="2" />
+          <entry key="txt" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7563" />
+          <entry key="JAVA" value="8992" />
           <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="38" />
         </counts>
       </usages-collector>
     </session>
@@ -79,8 +91,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/chap01/FilteringApples.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1197">
-              <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+            <state relative-caret-position="545">
+              <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chap02/FilteringApples.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,19 +113,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chap02/FilteringApples.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chap03/ExecuteAround.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="196" column="8" selection-start-line="196" selection-start-column="8" selection-end-line="196" selection-end-column="8" />
+            <state relative-caret-position="133">
+              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5483#5484#0" expanded="true" />
-                <element signature="e#5548#5549#0" expanded="true" />
-                <element signature="e#7141#7142#0" expanded="true" />
-                <element signature="e#7181#7182#0" expanded="true" />
-                <element signature="e#7876#7877#0" expanded="true" />
-                <element signature="e#7928#7929#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chap03/data.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -133,6 +160,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/chap01/FilteringApples.java" />
         <option value="$PROJECT_DIR$/src/main/java/chap02/FilteringApples.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chap03/data.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/chap03/ExecuteAround.java" />
       </list>
     </option>
   </component>
@@ -174,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -208,17 +236,34 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="chap01" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="java8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="05_Java8" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chap02" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="05_Java8" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chap03" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540109579256" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540634097825" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../02_study_book/05_Java8" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -239,7 +284,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FilteringApples (1)">
+  <component name="RunManager" selected="Application.ExecuteAround">
+    <configuration name="ExecuteAround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap03.ExecuteAround" />
+      <module name="05_Java8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chap03.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FilteringApples (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chap02.FilteringApples" />
       <module name="05_Java8" />
@@ -269,9 +327,11 @@
     <list>
       <item itemvalue="Application.FilteringApples" />
       <item itemvalue="Application.FilteringApples (1)" />
+      <item itemvalue="Application.ExecuteAround" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ExecuteAround" />
         <item itemvalue="Application.FilteringApples (1)" />
         <item itemvalue="Application.FilteringApples" />
       </list>
@@ -293,12 +353,13 @@
       <workItem from="1537957116908" duration="4209000" />
       <workItem from="1538811524080" duration="589000" />
       <workItem from="1540095667937" duration="8268000" />
-      <workItem from="1540107308932" duration="2264000" />
+      <workItem from="1540107308932" duration="3775000" />
+      <workItem from="1540622135814" duration="3788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17800000" />
+    <option name="totallyTimeSpent" value="23099000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -313,7 +374,7 @@
     <frame x="1592" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49932525" visible="true" weight="0.12660669" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49932525" visible="true" weight="0.12789203" />
       <window_info id="Structure" order="1" sideWeight="0.5006748" side_tool="true" weight="0.25321338" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -322,7 +383,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2608089" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38214785" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -376,26 +437,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chap01/FilteringApples.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+        <state relative-caret-position="545">
+          <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chap03/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chap02/FilteringApples.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="196" column="8" selection-start-line="196" selection-start-column="8" selection-end-line="196" selection-end-column="8" />
+        <state relative-caret-position="152">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5483#5484#0" expanded="true" />
-            <element signature="e#5548#5549#0" expanded="true" />
-            <element signature="e#7141#7142#0" expanded="true" />
-            <element signature="e#7181#7182#0" expanded="true" />
-            <element signature="e#7876#7877#0" expanded="true" />
-            <element signature="e#7928#7929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chap03/ExecuteAround.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
