@@ -63,9 +63,6 @@ public class ExecuteAround_03_03 {
     /**
      * 일반적인 파일 읽기
      *  한번에 한 줄만 읽을 수 있음
-     *
-     * @return
-     * @throws IOException
      */
     public static String fileReadOneLine() throws IOException {
         // try-with-resources 구문 / 자원을 명시적으로 닫을 필요가 없으므로 코드가 간결해짐
@@ -76,11 +73,6 @@ public class ExecuteAround_03_03 {
 
     /**
      * STEP 2. 함수형 인터페이스를 이용해서 동작 전달 Behavior relay using functional interface
-     *
-     * 함수형 인터페이스 자리에 람다 사용. 따라서 아래처럼
-     * BufferedReader->String과 IOException을 throw할 수 있는 시그니처와 일치하는 함수형 인터페이스(BufferedReaderProcessor) 생성
-     *
-     * 정의한 이 인터페이스를 fileReadOneLine 메서드의 인수로 전달 가능
      */
     @FunctionalInterface
     public interface BufferedReaderProcessor {
@@ -89,10 +81,6 @@ public class ExecuteAround_03_03 {
 
     /**
      * STEP 3. 동작 실행
-     *
-     * @param p
-     * @return
-     * @throws IOException
      */
     public static String processFile(BufferedReaderProcessor p) throws IOException {
         // try-with-resources 구문 / 자원을 명시적으로 닫을 필요가 없으므로 코드가 간결해짐
