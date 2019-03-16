@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * 함수형 인터페이스 : Predicate
+ * 함수형 인터페이스 : Predicate (boolean test())
  *
- *  test라는 추상 메서드를 정의하며, test는 제네릭 형식 T의 객체를 인수로 받아 boolean으로 return
+ *  test라는 추상 메서드를 정의하며, test는 제네릭 형식 T의 객체를 인수로 받아 boolean 으로 return
  *  따로 정의할 필요없이 바로 사용 가능
  *
  * 배열에 빈 값이 아닌 값만 찾아내는 예
@@ -16,7 +16,7 @@ import java.util.function.Predicate;
  * @author juhyun10
  * @since 2019.03.16
  */
-public class Predicate_03_04 {
+public class C_Predicate_03_04 {
 	public static void main(String[] args) {
 		List<String> listOfStrings = Arrays.asList("a", "b", "", "d");
 		

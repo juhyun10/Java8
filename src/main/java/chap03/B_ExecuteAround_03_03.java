@@ -12,7 +12,7 @@ import java.io.IOException;
  * @author juhyun10
  * @since 2019.03.16
  */
-public class ExecuteAround_03_03 {
+public class B_ExecuteAround_03_03 {
 
     public static void main(String[] args) throws IOException {
 
@@ -66,7 +66,7 @@ public class ExecuteAround_03_03 {
      */
     public static String fileReadOneLine() throws IOException {
         // try-with-resources 구문 / 자원을 명시적으로 닫을 필요가 없으므로 코드가 간결해짐
-        try (BufferedReader br = new BufferedReader(new FileReader("./src/main/java/chap03/data.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./src/main/java/chap03/B_data.txt"))) {
             return br.readLine();
         }
     }
@@ -84,7 +84,7 @@ public class ExecuteAround_03_03 {
      */
     public static String processFile(BufferedReaderProcessor p) throws IOException {
         // try-with-resources 구문 / 자원을 명시적으로 닫을 필요가 없으므로 코드가 간결해짐
-        try (BufferedReader br = new BufferedReader(new FileReader("./src/main/java/chap03/data.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./src/main/java/chap03/B_data.txt"))) {
             return p.process(br);
         }
     }

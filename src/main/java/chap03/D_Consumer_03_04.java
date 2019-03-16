@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * 함수형 인터페이스 : Consumer
+ * 함수형 인터페이스 : Consumer (void accept())
  *
  *  인자를 받아서 소모만 하고 리턴은 안함
  *  제네릭 형식 T 객체를 받아서 void return 하는 accept 라는 추상 메서드 정의
@@ -16,7 +16,7 @@ import java.util.function.Consumer;
  * @author juhyun10
  * @since 2019.03.17
  */
-public class Consumer_03_04 {
+public class D_Consumer_03_04 {
 	public static void main(String[] args) {
 		// Consumer의 accept를 구현하는 람다를 직접 넣음
 		forEach(Arrays.asList(1,2,3,4,5), (Integer i) -> System.out.println(i));

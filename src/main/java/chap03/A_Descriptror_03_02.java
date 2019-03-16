@@ -3,7 +3,7 @@ package chap03;
 /**
  * 어디에, 어떻게 람다 사용?
  */
-public class Descriptror_03_02 {
+public class A_Descriptror_03_02 {
     public static void main(String[] args) {
         // 람다 사용
         Runnable r1 = () -> System.out.println("Hello1");
